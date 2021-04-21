@@ -62,6 +62,8 @@ class MainKernelSpecHandler(TokenAuthorizationMixin,
 
     @web.authenticated
     async def get(self):
+        self.log.debug(f"Cookies: {self.request.cookies}")
+        self.log.debug(f"Headers: {self.request.headers}")
         ksm = self.kernel_spec_cache
         km = self.kernel_manager
         model = {}
